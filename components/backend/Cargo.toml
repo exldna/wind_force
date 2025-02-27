@@ -1,5 +1,5 @@
 [workspace]
-resolver = "2"
+resolver = "3"
 members = [
     "crates/proto",
     "crates/migrate",
@@ -10,7 +10,7 @@ members = [
 default-members = ["crates/server"]
 
 [workspace.package]
-edition = "2021"
+edition = "2024"
 
 [workspace.dependencies]
 proto = { path = "crates/proto" }
