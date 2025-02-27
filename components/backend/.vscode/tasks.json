@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "workspace: cargo doc",
+            "detail": "open workspace documentation",
+            "group": "build",
+            "type": "cargo",
+            "command": "doc",
+            "args": [
+                "--open",
+                "--no-deps",
+                "--workspace"
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+        },
+        {
+            "label": "workspace: cargo test",
+            "group": "build",
+            "type": "cargo",
+            "command": "test",
+            "args": [
+                "--workspace",
+            ],
+            "problemMatcher": [
+                "$rustc"
+            ],
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package schedule;
+
+import "schedule/v1/model/instructor.proto";
+import "schedule/v1/model/product.proto";
+import "schedule/v1/model/event.proto";
+
+service Schedule {
+  rpc CreateInstructor(CreateInstructorRequest) returns (CreateInstructorResponse);
+
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+
+  rpc CreateEvent(CreateEventRequest) returns (CreateEventResponse);
+}

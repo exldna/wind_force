@@ -1,0 +1,54 @@
+[package]
+name = "services"
+version = "0.0.1"
+edition.workspace = true
+
+[dependencies]
+workspace-hack = { version = "0.1", path = "../workspace-hack" }
+
+proto.workspace = true
+
+anyhow.workspace = true
+thiserror.workspace = true
+
+derive-getters = "0.5.0"
+
+uuid.workspace = true
+time.workspace = true
+
+secrecy.workspace = true
+
+tokio.workspace = true
+tower.workspace = true
+tonic.workspace = true
+
+sqlx.workspace = true
+
+rand_hc = "0.4.0"
+
+[dependencies.rand]
+version = "0.9.0"
+default-features = false
+features = ["std", "os_rng"]
+
+[dependencies.sea-query]
+version = "0.32.1"
+features = ["thread-safe", "backend-sqlite", "with-time", "with-uuid"]
+
+[dependencies.sea-query-binder]
+version = "0.7.0"
+features = ["sqlx-sqlite", "with-time", "with-uuid"]
+
+[dev-dependencies]
+migrate.workspace = true
+
+mockall = "0.13.1"
+
+async-trait = "0.1.86"
+tokio-stream = "0.1.17"
+hyper-util = { version = "0.1.10", features = ["tokio"] }
+
+[dev-dependencies.tower]
+version = "0.5.2"
+default-features = false
+features = ["util"]

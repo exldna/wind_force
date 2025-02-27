@@ -1,0 +1,12 @@
+[package]
+name = "migrate"
+version = "0.0.1"
+edition.workspace = true
+
+[dependencies]
+workspace-hack = { version = "0.1", path = "../workspace-hack" }
+
+[dependencies.sqlx]
+version = "0.8"
+default-features = false
+features = ["macros", "migrate", "sqlite", "uuid", "time"]

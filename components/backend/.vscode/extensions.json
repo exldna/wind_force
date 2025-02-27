@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        // Common
+        "NathanRidley.autotrim",
+        // Rust
+        "vadimcn.vscode-lldb",
+        "rust-lang.rust-analyzer",
+        "panicbit.cargo",
+        "tamasfe.even-better-toml",
+        // Protobuf
+        "peterj.proto",
+    ]
+}

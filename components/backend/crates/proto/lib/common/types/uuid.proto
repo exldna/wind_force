@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package common.types;
+
+// UUID type as defined in RFC 9562.
+//
+// We must store 128 bytes. It seems that two `fixed64` fields
+// is the best way to do it. Nah, the Protobuf type system is really madness.
+message Uuid {
+  fixed64 low = 1;
+  fixed64 high = 2;
+}

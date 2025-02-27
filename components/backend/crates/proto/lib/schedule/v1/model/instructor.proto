@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package schedule;
+
+import "common/types/uuid.proto";
+
+message Instructor {
+  common.types.Uuid uuid = 1;
+  string name = 2;
+}
+
+message CreateInstructorRequest {
+  string name = 1;
+}
+
+message CreateInstructorResponse {
+  common.types.Uuid uuid = 1;
+}

@@ -1,0 +1,19 @@
+[package]
+name = "proto"
+version = "0.0.1"
+edition.workspace = true
+
+[dependencies]
+workspace-hack = { version = "0.1", path = "../workspace-hack" }
+
+uuid.workspace = true
+time.workspace = true
+
+tonic.workspace = true
+prost = "0.13.1"
+
+[build-dependencies]
+tonic-build = "0.12.2"
+
+[dev-dependencies]
+uuid = { version = "1.14", features = ["v7"] }

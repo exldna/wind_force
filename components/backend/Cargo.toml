@@ -1,0 +1,39 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/proto",
+    "crates/migrate",
+    "crates/services",
+    "crates/server",
+    "crates/workspace-hack",
+]
+default-members = ["crates/server"]
+
+[workspace.package]
+edition = "2021"
+
+[workspace.dependencies]
+proto = { path = "crates/proto" }
+migrate = { path = "crates/migrate" }
+services = { path = "crates/services" }
+
+anyhow = "1.0.95"
+thiserror = "2.0.11"
+
+uuid = { version = "1.14", default-features = false }
+time = { version = "0.3", default-features = false }
+
+secrecy = "0.10.3"
+
+tonic = "0.12.3"
+tower = "0.5.2"
+
+[workspace.dependencies.tokio]
+version = "1"
+default-features = false
+features = ["rt", "rt-multi-thread", "macros"]
+
+[workspace.dependencies.sqlx]
+version = "0.8"
+default-features = false
+features = ["runtime-tokio", "sqlite", "uuid", "time"]

@@ -1,0 +1,44 @@
+name: wind-force
+
+services:
+  website:
+    extends:
+      file: ./docker/common.yml
+      service: website
+    build:
+      target: website-prod
+    profiles:
+      - prod
+
+  website-dev:
+    extends:
+      file: ./docker/common.yml
+      service: website
+    build:
+      target: website-dev
+    profiles:
+      - dev
+    ports:
+      - 8000:8000
+    develop:
+      watch:
+        - path: ./components/website/src
+          target: /app/src
+          action: sync
+        - path: ./components/website/static
+          target: /app/static
+          action: sync
+
+  http-balancer:
+    extends:
+      file: ./docker/common.yml
+      service: http-balancer
+    profiles:
+      - prod
+    depends_on:
+      website:
+        condition: service_healthy
+
+networks:
+  front-tier: {}
+  # back-tier: {}

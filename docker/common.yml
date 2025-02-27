@@ -1,0 +1,25 @@
+services:
+  # backend:
+  #   build:
+  #     context: ./components/backend
+  #     dockerfile: ../../docker/backend.docker
+  #     target: backend
+  #   networks:
+  #     - back-tier
+
+  website:
+    build:
+      context: ../components/website
+      dockerfile: ../../docker/website.dockerfile
+    networks:
+      - front-tier
+      # - back-tier
+
+  http-balancer:
+    build:
+      context: ../components/http-balancer
+      dockerfile: ../../docker/http-balancer.dockerfile
+    networks:
+      - front-tier
+    ports:
+      - 80:80

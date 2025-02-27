@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package schedule;
+
+import "common/types/time.proto";
+import "common/types/uuid.proto";
+
+message Event {
+  common.types.Uuid uuid = 1;
+  // Time span.
+  common.types.Timestamp time_begin = 2;
+  common.types.Timestamp time_end = 3;
+  // Domain-specific information.
+  common.types.Uuid product_uuid = 4;
+  common.types.Uuid instructor_uuid = 5;
+}
+
+message CreateEventRequest {
+  // Time span (optional)
+  common.types.Timestamp time_begin = 2;
+  common.types.Timestamp time_end = 3;
+  common.types.Uuid product_uuid = 4; // optional
+  common.types.Uuid instructor_uuid = 5; // optional
+}
+
+message CreateEventResponse {
+  common.types.Uuid uuid = 1;
+}
