@@ -2,6 +2,7 @@ use thiserror::Error;
 
 use super::credentials::*;
 
+#[allow(dead_code)]
 pub struct AuthenticationRequest {
     login: Login,
     password: Password,
