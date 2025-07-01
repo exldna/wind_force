@@ -3,10 +3,10 @@
 Helper tooling for wind force staff.
 
 - Instructors schedule view and CalDav notifications
-- Administrators managment system
-- Clients side descktop view
+- Administrators management system
+- Clients side desktop view
 
-# System architcture
+## System architecture
 
 ```mermaid
 flowchart LR
@@ -34,11 +34,12 @@ flowchart LR
 ### Backend
 
 #### _path_
+
 `components/backend/*`
 
 #### Description
 
-The core of the application. Contains all the logic related to it and provides a gRPC interfasce.
+The core of the application. Contains all the logic related to it and provides a gRPC interface.
 
 The backend logic is divided into domains called services. Services are connected by Kafka in purpose to keep consistent the backend internal state.
 
@@ -53,9 +54,10 @@ commonly used by frontend gateways.
 ### Website
 
 #### _path_
+
 `components/website`
 
-#### Description
+#### Website Description
 
 A http website written in deno fresh framework.
 It is middleware between the users and actual application logic. The main goal is to serve http requests and render website pages.
@@ -63,9 +65,10 @@ It is middleware between the users and actual application logic. The main goal i
 ### Http balancer
 
 #### _path_
+
 `components/http-balancer`
 
-#### Description
+#### Http balancer Description
 
 A web users entry point. Proxies HTTP requests to distinct `website` instances and provides a network defense layer.
 
@@ -74,9 +77,9 @@ We use `nginx` to do the HTTP balancer job.
 ### Mobile gateway
 
 #### _path_
+
 `Not implemented yet`
 
-#### Description
+#### Mobile gateway Description
 
-A mobile users entry point. Provides the server-side
- API for mobile apps.
+A mobile users entry point. Provides the server-side API for mobile apps.

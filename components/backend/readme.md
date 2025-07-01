@@ -1,7 +1,7 @@
 # Backend component
 
 As described in the root `readme.md`, this component
-contians the core logic of the application.
+contains the core logic of the application.
 The logic is divided into different domains.
 
 ## Workspace structure
@@ -31,10 +31,10 @@ $ cargo hakari generate
 ### _Schedule_
 
 The main goal of this domain is to provide useful
-tooling for isntructors. The core concept here is
+tooling for instructors. The core concept here is
 the instructors _schedule_, which is just a list
 of planned jobs. The planned job we call _event_,
-so basicly the _schedule_ is the set of _events_.
+so basically the _schedule_ is the set of _events_.
 
 As instructors have to specify the types of jobs
 they can do, the company provides the determine
