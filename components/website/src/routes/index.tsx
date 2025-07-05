@@ -52,7 +52,7 @@ export default function HomePage() {
                     href="/about"
                     class="text-gray-500 hover:text-gray-300 transition-colors font-light"
                   >
-                    О проекте
+                    О нас
                   </a>
                 </li>
                 <li>

@@ -33,7 +33,7 @@ export default function About() {
                     href="/about"
                     class="text-gray-300 hover:text-white transition-colors font-light"
                   >
-                    О клубе
+                    О нас
                   </a>
                 </li>
                 <li>
