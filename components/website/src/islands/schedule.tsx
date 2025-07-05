@@ -279,13 +279,6 @@ export default function Schedule() {
           <p class="text-gray-500 font-light">Нет предстоящих событий</p>
         </div>
       )}
-
-      {/* Футер */}
-      <div class="mt-16 pt-6 border-t border-gray-800 text-center">
-        <p class="text-gray-600 text-sm font-light">
-          © {new Date().getFullYear()} Парусный Клуб
-        </p>
-      </div>
     </div>
   );
 }
