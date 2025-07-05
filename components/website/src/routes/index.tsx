@@ -1,5 +1,6 @@
 import { Head } from "$fresh/runtime.ts";
 import { Handlers } from "$fresh/server.ts";
+import Schedule from "../islands/schedule.tsx";
 
 export const handler: Handlers = {
   GET(req, ctx) {
@@ -29,32 +30,36 @@ export default function HomePage() {
             <h1 className="text-2xl font-bold text-blue-600">
               ⚡ Сила{">>>"}Ветра. Расписание.
             </h1>
-            <nav>
-              <ul className="flex space-x-6">
-                <li>
-                  <a href="#" className="text-blue-500 hover:underline">
+          </div>
+          <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+            <nav class="w-full">
+              {/* Мобильное меню */}
+              <div class="md:hidden w-full">
+                <ul class="flex justify-around">
+                  <li class="text-center px-2 py-1">
+                    <a
+                      href="#"
+                      class="block py-2 px-4 text-blue-500 rounded-lg font-medium text-sm"
+                    >
                     Главная
                   </a>
                 </li>
-                <li>
-                  <a href="/about" className="text-gray-600 hover:underline">
+                  <li class="text-center px-2 py-1">
+                    <a
+                      href="/about"
+                      class="block py-2 px-4 text-gray-600 rounded-lg font-medium text-sm"
+                    >
                     О проекте
                   </a>
                 </li>
-                <li>
-                  <form
-                    action="/api/logout"
-                    method="POST"
-                    className="space-y-6"
-                  >
-                    <div>
+                  <li class="text-center px-2 py-1">
+                    <form action="/api/logout" method="POST" class="w-full">
                       <button
                         type="submit"
-                        className="text-blue-500 hover:underline"
+                        class="block w-full py-2 px-4 text-blue-500 rounded-lg font-medium text-sm"
                       >
                         Выйти
                       </button>
-                    </div>
                   </form>
                 </li>
               </ul>
@@ -81,7 +86,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="font-bold text-lg mb-2">⚡ Быстрота</h3>
+              <h3 className="font-bold text-lg mb-2">⚡ Быстро</h3>
               <p className="text-gray-600">
                 Поражает скоростью загрузки. Гугл Доки позавидуют.
               </p>
