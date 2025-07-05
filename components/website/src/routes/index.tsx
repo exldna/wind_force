@@ -30,16 +30,47 @@ export default function HomePage() {
             <h1 className="text-2xl font-bold text-blue-600">
               ⚡ Сила{">>>"}Ветра. Расписание.
             </h1>
+            {/* Десктопное меню */}
+            <nav class="hidden md:block">
+              <ul class="flex space-x-6">
+                <li>
+                  <a
+                    href="#"
+                    class="text-blue-500 hover:underline font-medium text-lg"
+                  >
+                    Главная
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/about"
+                    class="text-gray-600 hover:underline font-medium text-lg"
+                  >
+                    О проекте
+                  </a>
+                </li>
+                <li>
+                  <form action="/api/logout" method="POST">
+                    <button
+                      type="submit"
+                      class="text-blue-500 hover:underline font-medium text-lg"
+                    >
+                      Выйти
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </nav>
           </div>
           <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+            {/* Мобильное меню */}
             <nav class="w-full">
-              {/* Мобильное меню */}
               <div class="md:hidden w-full">
                 <ul class="flex justify-around">
                   <li class="text-center px-2 py-1">
                     <a
                       href="#"
-                      class="block py-2 px-4 text-blue-500 rounded-lg font-medium text-sm"
+                      class="block py-2 px-4 text-blue-500 rounded-lg font-medium text-lg"
                     >
                       Главная
                     </a>
@@ -47,7 +78,7 @@ export default function HomePage() {
                   <li class="text-center px-2 py-1">
                     <a
                       href="/about"
-                      class="block py-2 px-4 text-gray-600 rounded-lg font-medium text-sm"
+                      class="block py-2 px-4 text-gray-600 rounded-lg font-medium text-lg"
                     >
                       О проекте
                     </a>
@@ -56,7 +87,7 @@ export default function HomePage() {
                     <form action="/api/logout" method="POST" class="w-full">
                       <button
                         type="submit"
-                        class="block w-full py-2 px-4 text-blue-500 rounded-lg font-medium text-sm"
+                        class="block w-full py-2 px-4 text-blue-500 rounded-lg font-medium text-lg"
                       >
                         Выйти
                       </button>

@@ -107,7 +107,7 @@ export default function Schedule() {
       {/* Навигация по неделям */}
       <div class="flex items-center justify-between mb-6">
         <button
-          type="button"
+          type="submit"
           onClick={goToPreviousWeek}
           class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
         >
@@ -117,7 +117,7 @@ export default function Schedule() {
         <h2 class="text-lg font-bold text-center">{weekTitle()}</h2>
 
         <button
-          type="button"
+          type="submit"
           onClick={goToNextWeek}
           class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
         >
