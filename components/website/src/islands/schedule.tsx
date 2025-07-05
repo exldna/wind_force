@@ -95,6 +95,13 @@ export default function Schedule() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const currentYear = new Date().getFullYear(); // Текущий год
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     setIsLoading(true);
 
@@ -190,71 +197,95 @@ export default function Schedule() {
   };
 
   return (
-    <div class="p-4 mx-auto max-w-screen-sm">
-      <h2 class="text-lg font-bold text-center mb-6">Ближайшие события</h2>
+    <div class="p-4 mx-auto max-w-screen-sm font-sans bg-gray-900 min-h-screen text-white">
+      {/* Заголовок в стиле Silavetra */}
+      <div class="text-center mb-10 mt-8">
+        <h1 class="text-3xl font-light tracking-wide text-gray-100">
+          РАСПИСАНИЕ
+        </h1>
+        <div class="w-16 h-px bg-gray-700 mx-auto mt-4"></div>
+      </div>
 
       {isLoading ? (
-        <div class="text-center py-8">
-          <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
-          <p class="mt-2 text-gray-600">Загрузка событий...</p>
+        <div class="text-center py-12">
+          <div class="inline-block animate-spin rounded-full h-10 w-10 border-2 border-gray-600 border-t-transparent"></div>
+          <p class="mt-4 text-gray-500 font-light">Загрузка событий...</p>
         </div>
       ) : days.length > 0 ? (
-        <div class="space-y-8">
-          {days.map((day, index) => (
-            <div key={index}>
-              {/* Разделитель недели */}
-              {shouldAddWeekDivider(index) && (
-                <div class="relative my-6">
-                  <div class="absolute inset-0 flex items-center">
-                    <div class="w-full border-t border-gray-300"></div>
+        <div
+          class={`${
+            mounted ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-500`}
+        >
+          <div class="space-y-10">
+            {days.map((day, index) => (
+              <div key={index} class="relative">
+                {/* Разделитель недели */}
+                {shouldAddWeekDivider(index) && (
+                  <div class="relative mb-10 mt-8">
+                    <div class="absolute inset-0 flex items-center">
+                      <div class="w-full border-t border-gray-700"></div>
+                    </div>
+                    <div class="relative flex justify-center">
+                      <span class="px-4 bg-gray-900 text-sm text-gray-400 font-light tracking-wider">
+                        {formatWeekTitle(day.date)}
+                      </span>
+                    </div>
                   </div>
-                  <div class="relative flex justify-center">
-                    <span class="px-4 bg-white text-sm font-medium text-gray-600">
-                      {formatWeekTitle(day.date)}
-                    </span>
-                  </div>
-                </div>
-              )}
+                )}
 
-              {/* Карточка дня */}
-              <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
-                <div class="bg-blue-50 px-4 py-2 border-b border-gray-200">
-                  <h3 class="font-bold text-blue-800">
+                {/* Блок дня */}
+                <div>
+                  {/* Заголовок дня */}
+                  <h3 class="text-xl font-normal text-gray-300 mb-4 pb-2 border-b border-gray-800">
                     {formatDayTitle(day.date)}
                   </h3>
-                </div>
 
-                <div class="divide-y divide-gray-100">
-                  {day.events.map((event, idx) => (
-                    <div key={idx} class="px-4 py-3">
-                      <div class="flex justify-between items-start">
-                        <div class="font-medium text-gray-700 w-16 flex-shrink-0">
-                          {event.time}
+                  {/* Список событий */}
+                  <div class="space-y-6 ml-1">
+                    {day.events.map((event, idx) => (
+                      <div key={idx} class="flex group">
+                        {/* Время события */}
+                        <div class="w-24 flex-shrink-0 pt-0.5">
+                          <div class="text-gray-500 font-light group-hover:text-gray-300 transition-colors">
+                            {event.time}
+                          </div>
                         </div>
-                        <div class="flex-1 pl-3">
-                          <div class="font-semibold text-gray-900">
+
+                        {/* Детали события */}
+                        <div class="border-l border-gray-800 pl-4 pb-4 group-hover:border-gray-600 transition-colors">
+                          <div class="font-normal text-gray-100 tracking-wide group-hover:text-white transition-colors">
                             {event.title}
                           </div>
-                          <div class="text-gray-600 mt-1">{event.subtitle}</div>
+                          <div class="text-gray-500 font-light mt-1 group-hover:text-gray-300 transition-colors">
+                            {event.subtitle}
+                          </div>
                           {event.note && (
-                            <div class="text-sm text-red-500 mt-1">
+                            <div class="text-sm text-gray-600 font-light mt-2 italic group-hover:text-gray-400 transition-colors">
                               {event.note}
                             </div>
                           )}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       ) : (
-        <div class="py-6 text-center text-gray-500">
-          Нет предстоящих событий
+        <div class="py-16 text-center">
+          <p class="text-gray-500 font-light">Нет предстоящих событий</p>
         </div>
       )}
+
+      {/* Футер */}
+      <div class="mt-16 pt-6 border-t border-gray-800 text-center">
+        <p class="text-gray-600 text-sm font-light">
+          © {new Date().getFullYear()} Парусный Клуб
+        </p>
+      </div>
     </div>
   );
 }
