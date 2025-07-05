@@ -7,90 +7,108 @@ export default function LoginPage({ url }: PageProps) {
   return (
     <>
       <Head>
-        <title>Time to login!</title>
+        <title>Вход | Сила{">>>"}Ветра</title>
+        <style>{`
+          @media (max-height: 700px) {
+            .login-container {
+              padding-top: 1rem;
+              padding-bottom: 1rem;
+            }
+            .login-footer {
+              padding-top: 1rem;
+              padding-bottom: 1rem;
+            }
+          }
+        `}</style>
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
-        <main className="grid min-h-full place-items-center bg-gradient-to-br from-blue-50 to-gray-100 px-6 py-24 sm:py-32 lg:px-8">
-          <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-            <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <img
-                alt="Your Company"
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                className="mx-auto h-10 w-auto"
-              />
-              <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-                Sign in to your account
-              </h2>
+      <div class="min-h-screen bg-gray-900 text-gray-100 font-sans flex flex-col">
+        <div class="flex-grow flex items-center justify-center login-container">
+          <div class="w-full max-w-md px-6 py-8">
+            <div class="text-center mb-8">
+              <h1 class="text-3xl font-light tracking-wide text-gray-100 mb-3">
+                ⛵ Сила{">>>"}Ветра
+              </h1>
+              <div class="w-16 h-px bg-gray-700 mx-auto"></div>
             </div>
 
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 sm:p-8 shadow-lg">
+              <h2 class="text-xl sm:text-2xl font-light text-center text-gray-200 mb-6">
+                Вход в расписание
+              </h2>
+
               {error && (
-                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-center">
+                <div class="mb-5 p-3 bg-red-900 text-red-100 rounded-lg text-center font-light text-sm sm:text-base">
                   {decodeURIComponent(error)}
                 </div>
               )}
-              <form action="/api/login" method="POST" className="space-y-6">
+
+              <form action="/api/login" method="POST" class="space-y-6">
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm/6 font-medium text-gray-900"
+                    class="block text-gray-400 font-light mb-2 pl-1 text-sm sm:text-base"
                   >
-                    Email address
+                    Электронная почта
                   </label>
-                  <div className="mt-2">
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                    />
-                  </div>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                    class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2.5 text-gray-100 font-light focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-sm sm:text-base"
+                    placeholder="your@email.com"
+                  />
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between">
+                  <div class="flex justify-between mb-2 pl-1">
                     <label
                       htmlFor="password"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      class="block text-gray-400 font-light text-sm sm:text-base"
                     >
-                      Password
+                      Пароль
                     </label>
-                    <div className="text-sm">
-                      <a
-                        href="#"
-                        className="font-semibold text-indigo-600 hover:text-indigo-500"
-                      >
-                        Forgot password?
-                      </a>
-                    </div>
+                    <a
+                      href="#"
+                      class="text-xs sm:text-sm text-blue-400 hover:text-blue-300 transition-colors font-light"
+                    >
+                      Забыли пароль?
+                    </a>
                   </div>
-                  <div className="mt-2">
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      required
-                      autoComplete="current-password"
-                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                    />
-                  </div>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                    autoComplete="current-password"
+                    class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2.5 text-gray-100 font-light focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-gray-500 text-sm sm:text-base"
+                    placeholder="••••••••"
+                  />
                 </div>
 
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    class="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-light tracking-wide transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500 text-sm sm:text-base"
                   >
-                    Sign in
+                    Войти
                   </button>
                 </div>
               </form>
             </div>
           </div>
-        </main>
+        </div>
+
+        <footer class="py-6 border-t border-gray-800 login-footer">
+          <div class="max-w-md mx-auto px-6 text-center">
+            <p class="text-gray-600 text-xs sm:text-sm font-light">
+              © {new Date().getFullYear()} Сделано с ❤️ командой, неравнодушной
+              к "Сила{">>>"}Ветра"
+            </p>
+          </div>
+        </footer>
       </div>
     </>
   );
