@@ -1,11 +1,24 @@
 import { Head } from "$fresh/runtime.ts";
-import MainInteractiveBlock from "../islands/deleteMe.tsx";
+import { Handlers } from "$fresh/server.ts";
 
-export default function Home() {
+export const handler: Handlers = {
+  GET(req, ctx) {
+    const cookie = req.headers.get("cookie");
+    if (!cookie?.includes("session=authenticated")) {
+      return new Response("", {
+        status: 307,
+        headers: { Location: "/login" },
+      });
+    }
+    return ctx.render();
+  },
+};
+
+export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Сила>>>ВетраРасписание</title>
+        <title>Сила{">>>"}ВетраРасписание</title>
         <meta name="description" content="Играемся с Deno Fresh" />
       </Head>
 
@@ -14,18 +27,35 @@ export default function Home() {
         <header className="bg-white shadow-sm">
           <div className="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
             <h1 className="text-2xl font-bold text-blue-600">
-              ⚡ Сила>>>Ветра. Расписание.
+              ⚡ Сила{">>>"}Ветра. Расписание.
             </h1>
             <nav>
               <ul className="flex space-x-6">
                 <li>
-                  <a href="#" className="text-blue-500 hover:underline">Главная</a>
+                  <a href="#" className="text-blue-500 hover:underline">
+                    Главная
+                  </a>
                 </li>
                 <li>
-                  <a href="/about" className="text-gray-600 hover:underline">О проекте</a>
+                  <a href="/about" className="text-gray-600 hover:underline">
+                    О проекте
+                  </a>
                 </li>
                 <li>
-                  <a href="/register" className="text-blue-500 hover:underline">Регистрация/Вход</a>
+                  <form
+                    action="/api/logout"
+                    method="POST"
+                    className="space-y-6"
+                  >
+                    <div>
+                      <button
+                        type="submit"
+                        className="text-blue-500 hover:underline"
+                      >
+                        Выйти
+                      </button>
+                    </div>
+                  </form>
                 </li>
               </ul>
             </nav>
@@ -68,7 +98,7 @@ export default function Home() {
         {/* Футер */}
         <footer className="bg-white mt-24 py-8 border-t">
           <div className="max-w-6xl mx-auto px-4 text-center text-gray-500">
-            <p>Сделано с ❤️ командой, неравнодушной к Силе>>>Ветра.</p>
+            <p>Сделано с ❤️ командой, неравнодушной к Силе{">>>"}Ветра.</p>
           </div>
         </footer>
       </div>
