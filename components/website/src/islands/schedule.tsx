@@ -61,6 +61,7 @@ export default function Schedule() {
     startOfWeek(new Date(2025, 6, 7), { weekStartsOn: 1 })
   );
   const [weekSchedule, setWeekSchedule] = useState<DaySchedule[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   // Генерация недельного расписания
   const generateWeekSchedule = (startDate: Date) => {
@@ -91,7 +92,9 @@ export default function Schedule() {
 
   // Обновление расписания при смене недели
   useEffect(() => {
+    setIsLoading(true);
     setWeekSchedule(generateWeekSchedule(currentWeekStart));
+    setIsLoading(false);
   }, [currentWeekStart]);
 
   // Форматирование заголовка недели
@@ -110,6 +113,7 @@ export default function Schedule() {
           type="submit"
           onClick={goToPreviousWeek}
           class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+          disabled={isLoading}
         >
           ← Пред
         </button>
@@ -120,42 +124,51 @@ export default function Schedule() {
           type="submit"
           onClick={goToNextWeek}
           class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+          disabled={isLoading}
         >
           След →
         </button>
       </div>
 
-      {/* Расписание по дням */}
-      {weekSchedule.map((day, index) => (
-        <div key={index} class="mt-6">
-          <h2 class="text-lg font-bold py-2 border-b border-gray-200">
-            {format(day.date, "EEE, d MMM", { locale: ru })}
-          </h2>
+      {/* Индикатор загрузки */}
+      {isLoading ? (
+        <div class="text-center py-8">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-500 border-t-transparent"></div>
+          <p class="mt-2 text-gray-600">Загрузка расписания...</p>
+        </div>
+      ) : (
+        /* Расписание по дням */
+        weekSchedule.map((day, index) => (
+          <div key={index} class="mt-6">
+            <h2 class="text-lg font-bold py-2 border-b border-gray-200">
+              {format(day.date, "EEE, d MMM", { locale: ru })}
+            </h2>
 
-          {day.events.length > 0 ? (
-            <div class="divide-y divide-gray-100">
-              {day.events.map((event, idx) => (
-                <div key={idx} class="py-3">
-                  <div class="flex justify-between items-start">
-                    <div class="font-medium text-gray-700">{event.time}</div>
-                    <div class="flex-1 pl-4">
-                      <div class="font-semibold">{event.title}</div>
-                      <div class="text-gray-600">{event.subtitle}</div>
-                      {event.note && (
-                        <div class="text-sm text-red-500 mt-1">
-                          {event.note}
-                        </div>
-                      )}
+            {day.events.length > 0 ? (
+              <div class="divide-y divide-gray-100">
+                {day.events.map((event, idx) => (
+                  <div key={idx} class="py-3">
+                    <div class="flex justify-between items-start">
+                      <div class="font-medium text-gray-700">{event.time}</div>
+                      <div class="flex-1 pl-4">
+                        <div class="font-semibold">{event.title}</div>
+                        <div class="text-gray-600">{event.subtitle}</div>
+                        {event.note && (
+                          <div class="text-sm text-red-500 mt-1">
+                            {event.note}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div class="py-6 text-center text-gray-500">Нет мероприятий</div>
-          )}
-        </div>
-      ))}
+                ))}
+              </div>
+            ) : (
+              <div class="py-6 text-center text-gray-500">Нет мероприятий</div>
+            )}
+          </div>
+        ))
+      )}
     </div>
   );
 }
