@@ -203,7 +203,6 @@ export default function Schedule() {
         <h1 class="text-3xl font-light tracking-wide text-gray-100">
           РАСПИСАНИЕ
         </h1>
-        <div class="w-16 h-px bg-gray-700 mx-auto mt-4"></div>
       </div>
 
       {isLoading ? (
