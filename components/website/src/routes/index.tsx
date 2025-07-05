@@ -41,17 +41,17 @@ export default function HomePage() {
                       href="#"
                       class="block py-2 px-4 text-blue-500 rounded-lg font-medium text-sm"
                     >
-                    Главная
-                  </a>
-                </li>
+                      Главная
+                    </a>
+                  </li>
                   <li class="text-center px-2 py-1">
                     <a
                       href="/about"
                       class="block py-2 px-4 text-gray-600 rounded-lg font-medium text-sm"
                     >
-                    О проекте
-                  </a>
-                </li>
+                      О проекте
+                    </a>
+                  </li>
                   <li class="text-center px-2 py-1">
                     <form action="/api/logout" method="POST" class="w-full">
                       <button
@@ -60,9 +60,10 @@ export default function HomePage() {
                       >
                         Выйти
                       </button>
-                  </form>
-                </li>
-              </ul>
+                    </form>
+                  </li>
+                </ul>
+              </div>
             </nav>
           </div>
         </header>
@@ -77,6 +78,12 @@ export default function HomePage() {
               Здесь можно найти свое расписание, а также изменить его.
             </p>
           </section>
+
+          {/* Расписание */}
+          <div class="p-4">
+            <Schedule />
+          </div>
+
           {/* Карточки фич */}
           <div className="grid md:grid-cols-3 gap-8 mt-16">
             <div className="bg-white p-6 rounded-lg shadow">
