@@ -1,11 +1,13 @@
 import { PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
 
-export default function RegisterPage() {
+export default function LoginPage({ url }: PageProps) {
+  const error = url.searchParams.get("error");
+
   return (
     <>
       <Head>
-        <title>Time to register!</title>
+        <title>Time to login!</title>
       </Head>
 
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100">
@@ -23,7 +25,12 @@ export default function RegisterPage() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form action="/register" method="POST" className="space-y-6">
+              {error && (
+                <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-center">
+                  {decodeURIComponent(error)}
+                </div>
+              )}
+              <form action="/api/login" method="POST" className="space-y-6">
                 <div>
                   <label
                     htmlFor="email"
