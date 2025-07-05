@@ -35,7 +35,7 @@ export default function HomePage() {
               <ul class="flex space-x-6">
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     class="text-blue-500 hover:underline font-medium text-lg"
                   >
                     Главная
