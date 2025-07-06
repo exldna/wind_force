@@ -32,7 +32,7 @@ export default function HomePage() {
           <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div>
               <h1 class="text-2xl font-light tracking-wide">
-                ⛵ Сила{">>>"}Ветра
+                Сила{">>>"}Ветра
               </h1>
               <div class="text-sm text-gray-500 mt-1">Расписание</div>
             </div>

@@ -27,7 +27,7 @@ export default function LoginPage({ url }: PageProps) {
           <div class="w-full max-w-md px-6 py-8">
             <div class="text-center mb-8">
               <h1 class="text-3xl font-light tracking-wide text-gray-100 mb-3">
-                ⛵ Сила{">>>"}Ветра
+                Сила{">>>"}Ветра
               </h1>
               <div class="w-16 h-px bg-gray-700 mx-auto"></div>
             </div>

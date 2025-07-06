@@ -3,11 +3,11 @@
         // Common
         "NathanRidley.autotrim",
         // Rust
-        "vadimcn.vscode-lldb",
+        // "vadimcn.vscode-lldb",
         "rust-lang.rust-analyzer",
-        "panicbit.cargo",
+        // "panicbit.cargo",
         "tamasfe.even-better-toml",
         // Protobuf
-        "peterj.proto",
+        // "peterj.proto",
     ]
 }

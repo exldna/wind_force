@@ -13,7 +13,7 @@ export default function About() {
           <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div>
               <h1 class="text-2xl font-light tracking-wide">
-                ⛵ Сила{">>>"}Ветра
+                Cила{">>>"}Ветра
               </h1>
               <div class="text-sm text-gray-500 mt-1">О команде</div>
             </div>

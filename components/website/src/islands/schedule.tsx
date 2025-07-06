@@ -9,71 +9,143 @@ interface Event {
   note?: string;
 }
 
+// const mockData: Record<string, Event[]> = {
+//   "2025-04-07": [
+//     {
+//       time: "09:00–11:00",
+//       title: "Training",
+//       subtitle: "RS Quest 5",
+//     },
+//     {
+//       time: "10:30–12:30",
+//       title: "Cup Race",
+//       subtitle: "Swan 35",
+//       note: "➔ Collisions c 1 (Harbor A)",
+//     },
+//   ],
+//   "2025-07-07": [
+//     {
+//       time: "09:00–11:00",
+//       title: "Training",
+//       subtitle: "RS Quest 5",
+//     },
+//     {
+//       time: "10:30–12:30",
+//       title: "Cup Race",
+//       subtitle: "Swan 35",
+//       note: "➔ Collisions c 1 (Harbor A)",
+//     },
+//   ],
+//   "2025-07-08": [
+//     {
+//       time: "08:00–10:00",
+//       title: "Cruise",
+//       subtitle: "Laser 12",
+//     },
+//     {
+//       time: "11:00–13:00",
+//       title: "Private Lesson",
+//       subtitle: "Swan 35",
+//     },
+//   ],
+//   "2025-07-14": [
+//     {
+//       time: "10:00–12:00",
+//       title: "Team Practice",
+//       subtitle: "J70",
+//     },
+//   ],
+//   "2025-07-16": [
+//     {
+//       time: "14:00–16:00",
+//       title: "Regatta",
+//       subtitle: "Flying Scot",
+//     },
+//   ],
+//   "2025-07-21": [
+//     {
+//       time: "12:00–14:00",
+//       title: "Junior Training",
+//       subtitle: "Optimist",
+//     },
+//   ],
+//   "2026-09-09": [
+//     {
+//       time: "12:00–14:00",
+//       title: "Junior Training",
+//       subtitle: "Optimist",
+//     },
+//   ],
+// };
+
 const mockData: Record<string, Event[]> = {
-  "2025-04-07": [
+  // Июнь
+  "2024-06-04": [
     {
-      time: "09:00–11:00",
-      title: "Training",
-      subtitle: "RS Quest 5",
-    },
-    {
-      time: "10:30–12:30",
-      title: "Cup Race",
-      subtitle: "Swan 35",
-      note: "➔ Collisions c 1 (Harbor A)",
+      time: "18:00–20:00",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
     },
   ],
-  "2025-07-07": [
+  "2024-06-05": [
     {
-      time: "09:00–11:00",
-      title: "Training",
-      subtitle: "RS Quest 5",
+      time: "12:00–14:00",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
     },
     {
-      time: "10:30–12:30",
-      title: "Cup Race",
-      subtitle: "Swan 35",
-      note: "➔ Collisions c 1 (Harbor A)",
-    },
-  ],
-  "2025-07-08": [
-    {
-      time: "08:00–10:00",
-      title: "Cruise",
-      subtitle: "Laser 12",
-    },
-    {
-      time: "11:00–13:00",
-      title: "Private Lesson",
-      subtitle: "Swan 35",
+      time: "17:30–21:30",
+      title: "Спецпроект",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Катер: Стоколесова Яна",
     },
   ],
-  "2025-07-14": [
-    {
-      time: "10:00–12:00",
-      title: "Team Practice",
-      subtitle: "J70",
-    },
-  ],
-  "2025-07-16": [
+  "2024-06-06": [
     {
       time: "14:00–16:00",
-      title: "Regatta",
-      subtitle: "Flying Scot",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
+    },
+    {
+      time: "16:00–18:00",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
     },
   ],
-  "2025-07-21": [
+  "2024-06-27": [
     {
-      time: "12:00–14:00",
-      title: "Junior Training",
-      subtitle: "Optimist",
+      time: "15:30–17:30",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Городецкая Ирина",
     },
   ],
-  "2026-09-09": [
+
+  // Июль
+  "2024-07-03": [
     {
-      time: "12:00–14:00",
-      title: "Junior Training",
-      subtitle: "Optimist",
+      time: "13:00–15:00",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
+    },
+    {
+      time: "15:30–17:30",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
+    },
+  ],
+  "2024-07-07": [
+    {
+      time: "15:30–17:30",
+      title: "Корпоратив",
+      subtitle: "Инструктор: Гильфанов Константин",
+      note: "Судья: Стоколесова Яна",
     },
   ],
 };
@@ -130,7 +202,7 @@ export default function Schedule() {
 
     // Фильтруем и сортируем события
     const filteredEvents = allEvents
-      .filter((event) => event.dateTime >= now)
+      // .filter((event) => event.dateTime >= now)
       .sort((a, b) => a.dateTime.getTime() - b.dateTime.getTime());
     // .slice(0, 10); // (Потенциально) ограничиваем макс. ближайших событий
 
