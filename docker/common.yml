@@ -16,13 +16,13 @@ services:
       - back-tier
 
   http-balancer:
-    image: nginx:latest
     build:
       context: ../components/http-balancer
+      dockerfile: ../../docker/http-balancer.dockerfile
     volumes:
-      - ./:/etc/nginx:ro
       - /etc/letsencrypt:/etc/letsencrypt:ro
     networks:
       - front-tier
     ports:
       - 80:80
+      - 443:443
