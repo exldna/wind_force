@@ -1,10 +1,18 @@
-export default function Header() {
+interface HeaderParams {
+  title?: string;
+  description?: string;
+}
+
+export default function Header({
+  title = "⛵ Сила>>>Ветра", // дефолтное название страницы
+  description = "Расписание",
+}: HeaderParams) {
   return (
     <header class="py-6 border-b border-gray-800">
       <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
         <div>
-          <h1 class="text-2xl font-light tracking-wide">⛵ Сила{">>>"}Ветра</h1>
-          <div class="text-sm text-gray-500 mt-1">Расписание</div>
+          <h1 class="text-2xl font-light tracking-wide">{title}</h1>
+          <div class="text-sm text-gray-500 mt-1">{description}</div>
         </div>
 
         <nav class="hidden md:block">
