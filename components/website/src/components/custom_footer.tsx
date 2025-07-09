@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function CustomFooter() {
   return (
     <footer class="mt-24 py-8 border-t border-gray-800">
       <div class="max-w-6xl mx-auto px-4 text-center">
