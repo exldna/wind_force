@@ -20,16 +20,9 @@ export default function HomePage() {
     <FullLayout>
       {/* Голова */}
       {/* Хедер */}
-      {/* Ниже Тело */}
+      {/* Ниже Тело | Основной контент*/}
       <div class="min-h-screen bg-gray-900 text-gray-100 font-sans">
-        {/* Основной контент */}
         <main class="max-w-6xl mx-auto px-4 py-8">
-          {/* <section class="mb-12 text-center">
-            <h2 class="text-3xl font-light tracking-wide text-gray-200 mb-4">
-              Расписание тренировок и мероприятий
-            </h2>
-            <div class="w-24 h-px bg-gray-700 mx-auto mt-4"></div>
-          </section> */}
 
           {/* Расписание */}
           <div class="mb-16">
