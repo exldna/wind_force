@@ -1,10 +1,18 @@
-import CustomHead from "../components/custom_head.tsx";
 import FullLayout from "../components/full_layout.tsx";
 
 export default function About() {
   return (
-    <FullLayout>
-      <CustomHead title="О нас | Команда Расписания Сила>>>Ветра" />
+    <FullLayout
+      params={{
+        head: {
+          title: "О нас | Команда Расписания Сила>>>Ветра",
+        },
+        header: {
+          description: "О нас",
+        },
+      }}
+    >
+      {/* Голова */}
       {/* Хедер */}
       {/* Ниже Тело | Основной контент*/}
       <div class="min-h-screen bg-gray-900 text-gray-100 font-sans flex flex-col">

@@ -5,10 +5,12 @@ interface HeadParams {
   description?: string;
 }
 
-export default function CustomHead({
-  title = "Сила>>>Ветра | Расписание", // дефолтное название страницы
-  description = "Расписание тренировок и мероприятий парусного клуба",
-}: HeadParams) {
+export default function CustomHead({ params = {} }: { params?: HeadParams }) {
+  const {
+    title = "Сила>>>Ветра | Расписание",
+    description = "Расписание тренировок и мероприятий парусного клуба",
+  } = params || {};
+
   return (
     <Head>
       <title>{title}</title>
