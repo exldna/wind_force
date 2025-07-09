@@ -1,6 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import { Handlers } from "$fresh/server.ts";
 import Schedule from "../islands/schedule.tsx";
+import FullLayout from "../components/full_layout.tsx";
 
 export const handler: Handlers = {
   GET(req, ctx) {
@@ -17,7 +18,7 @@ export const handler: Handlers = {
 
 export default function HomePage() {
   return (
-    <>
+    <FullLayout>
       <Head>
         <title>Сила{">>>"}Ветра | Расписание</title>
         <meta
@@ -26,84 +27,8 @@ export default function HomePage() {
         />
       </Head>
 
+      {/* Хедер */}
       <div class="min-h-screen bg-gray-900 text-gray-100 font-sans">
-        {/* Хедер */}
-        <header class="py-6 border-b border-gray-800">
-          <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-            <div>
-              <h1 class="text-2xl font-light tracking-wide">
-                ⛵ Сила{">>>"}Ветра
-              </h1>
-              <div class="text-sm text-gray-500 mt-1">Расписание</div>
-            </div>
-
-            <nav class="hidden md:block">
-              <ul class="flex space-x-8">
-                <li>
-                  <a
-                    href="/"
-                    class="text-gray-300 hover:text-white transition-colors font-light"
-                  >
-                    Главная
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    class="text-gray-500 hover:text-gray-300 transition-colors font-light"
-                  >
-                    О нас
-                  </a>
-                </li>
-                <li>
-                  <form action="/api/logout" method="POST">
-                    <button
-                      type="submit"
-                      class="text-blue-400 hover:text-blue-300 transition-colors font-light"
-                    >
-                      Выйти
-                    </button>
-                  </form>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          {/* Мобильное меню */}
-          <nav class="md:hidden mt-4">
-            <div class="max-w-6xl mx-auto px-4">
-              <ul class="flex justify-around">
-                <li>
-                  <a
-                    href="/"
-                    class="block py-2 px-4 text-gray-300 rounded-lg font-light"
-                  >
-                    Главная
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/about"
-                    class="block py-2 px-4 text-gray-500 rounded-lg font-light"
-                  >
-                    О проекте
-                  </a>
-                </li>
-                <li>
-                  <form action="/api/logout" method="POST">
-                    <button
-                      type="submit"
-                      class="block py-2 px-4 text-blue-400 rounded-lg font-light"
-                    >
-                      Выйти
-                    </button>
-                  </form>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </header>
-
         {/* Основной контент */}
         <main class="max-w-6xl mx-auto px-4 py-8">
           {/* <section class="mb-12 text-center">
@@ -140,19 +65,8 @@ export default function HomePage() {
             </div>
           </div>
         </main>
-
-        {/* Футер */}
-        <footer class="mt-24 py-8 border-t border-gray-800">
-          <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-gray-500 font-light">
-              Сделано с ❤️ командой, неравнодушной к "Сила{">>>"}Ветра"
-            </p>
-            <p class="text-gray-600 text-sm mt-2 font-light">
-              © {new Date().getFullYear()} Все права защищены
-            </p>
-          </div>
-        </footer>
       </div>
-    </>
+      {/* Футер */}
+    </FullLayout>
   );
 }
