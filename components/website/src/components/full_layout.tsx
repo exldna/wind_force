@@ -1,6 +1,6 @@
 import Header from "./header.tsx";
 import Footer from "./footer.tsx";
-import { Head } from "$fresh/runtime.ts";
+import CustomHead from "./custom_head.tsx";
 
 export default function FullLayout({
   children,
@@ -9,15 +9,9 @@ export default function FullLayout({
 }) {
   return (
     <>
-      <Head>
-        <title>Сила{">>>"}Ветра | Расписание</title>
-        <meta
-          name="description"
-          content="Расписание тренировок и мероприятий парусного клуба"
-        />
-      </Head>
+      <CustomHead />
       <Header />
-      <main>{children}</main>
+      <body>{children}</body>
       <Footer />
     </>
   );

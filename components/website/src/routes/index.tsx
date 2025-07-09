@@ -1,4 +1,3 @@
-import { Head } from "$fresh/runtime.ts";
 import { Handlers } from "$fresh/server.ts";
 import Schedule from "../islands/schedule.tsx";
 import FullLayout from "../components/full_layout.tsx";
@@ -19,15 +18,9 @@ export const handler: Handlers = {
 export default function HomePage() {
   return (
     <FullLayout>
-      <Head>
-        <title>Сила{">>>"}Ветра | Расписание</title>
-        <meta
-          name="description"
-          content="Расписание тренировок и мероприятий парусного клуба"
-        />
-      </Head>
-
+      {/* Голова */}
       {/* Хедер */}
+      {/* Ниже Тело */}
       <div class="min-h-screen bg-gray-900 text-gray-100 font-sans">
         {/* Основной контент */}
         <main class="max-w-6xl mx-auto px-4 py-8">
