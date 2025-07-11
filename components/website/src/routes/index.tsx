@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import Schedule from "../islands/schedule.tsx";
-import FullLayout from "../components/full_layout.tsx";
+import FullLayout from "../components_layout/full_layout.tsx";
 
 export const handler: Handlers = {
   GET(req, ctx) {

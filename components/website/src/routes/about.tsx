@@ -1,4 +1,4 @@
-import FullLayout from "../components/full_layout.tsx";
+import FullLayout from "../components_layout/full_layout.tsx";
 
 export default function About() {
   return (
