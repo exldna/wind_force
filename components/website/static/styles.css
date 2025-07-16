@@ -12,8 +12,8 @@ body {
 }
 
 @layer components {
-    .btn {
-        @apply px-4 py-2 font-light tracking-wide text-gray-300 transition-colors hover:text-white;
+    .btn-primary {
+        @apply py-3 px-6 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-light tracking-wide transition-colors;
     }
 
     .card {
