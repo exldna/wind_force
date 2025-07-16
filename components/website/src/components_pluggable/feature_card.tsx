@@ -10,7 +10,7 @@ export default function FeatureCard({
   children: JSX.Element | string;
 }) {
   return (
-    <div class="card animate-fadeIn">
+    <div class="card">
       <h3 class="feature-title">{icon} {title}</h3>
       <p class="feature-text">{children}</p>
     </div>
