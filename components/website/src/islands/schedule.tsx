@@ -72,8 +72,8 @@ const mockData: Record<string, Event[]> = {
   "2026-09-09": [
     {
       time: "12:00–14:00",
-      title: "Junior Training",
-      subtitle: "Optimist",
+      title: "Usual work",
+      subtitle: "C7",
     },
   ],
 };
