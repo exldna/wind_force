@@ -27,6 +27,14 @@ body {
     .login-btn {
         @apply w-full py-3 px-4 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-light tracking-wide transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-blue-500;
     }
+
+    .feature-title {
+        @apply font-light text-xl mb-3 text-gray-200;
+    }
+
+    .feature-text {
+        @apply text-gray-400 font-light;
+    }
 }
 
 @keyframes fadeIn {
@@ -41,53 +49,6 @@ body {
     }
 }
 
-/* Темная цветовая схема */
-.bg-gray-900 {
-    background-color: #121212;
-}
-
-.text-gray-100 {
-    color: #f5f5f5;
-}
-
-.text-gray-300 {
-    color: #e0e0e0;
-}
-
-.text-gray-500 {
-    color: #9e9e9e;
-}
-
-.text-gray-600 {
-    color: #757575;
-}
-
-.border-gray-700 {
-    border-color: #424242;
-}
-
-.border-gray-800 {
-    border-color: #303030;
-}
-
-/* Тонкие анимации */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fadeIn {
-    animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Эффекты при наведении */
 .transition-colors {
     transition: color 0.2s ease, border-color 0.2s ease;
 }
