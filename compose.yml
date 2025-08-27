@@ -1,6 +1,14 @@
 name: wind-force
 
 services:
+  backend:
+    extends:
+      file: ./docker/common.yml
+      service: backend
+    profiles:
+      - dev
+      - prod
+
   website:
     extends:
       file: ./docker/common.yml
@@ -41,4 +49,4 @@ services:
 
 networks:
   front-tier: {}
-  # back-tier: {}
+  back-tier: {}
