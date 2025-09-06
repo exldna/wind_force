@@ -9,3 +9,6 @@
 _fresh/
 # npm dependencies
 node_modules/
+
+# some internal instructions files
+grpc_client_files/*.txt
