@@ -11,4 +11,4 @@ _fresh/
 node_modules/
 
 # some internal instructions files
-grpc_client_files/*.txt
+src/grpc_client_files/*.txt
