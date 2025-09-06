@@ -22,3 +22,6 @@ tonic.workspace = true
 tokio.workspace = true
 
 sqlx.workspace = true
+
+tonic-web = "0.12"
+tower-http = { version = "0.5", features = ["cors"] }
