@@ -20,6 +20,8 @@ async fn main() -> anyhow::Result<()> {
         ScheduleServer::new(grpc_server)
     };
     tonic::transport::Server::builder()
+        .accept_http1(true)
+        .layer(tower_http::cors::CorsLayer::permissive()) // CHANGE CONFIG FOR PRODUCTION
         .add_service(schedule_service)
         .serve(config.serve_addr)
         .await?;
